@@ -1,4 +1,4 @@
-const tabs = document.querySelectorAll("div span");
+const tabs = document.querySelectorAll("ul li");
 const signup = document.getElementById("signup");
 const login = document.getElementById("login");
 
@@ -72,10 +72,10 @@ signupBtn.addEventListener("click", async (e) => {
     const Password = document.getElementById("signup-pass").value.trim();
     const Phone = document.getElementById("phone").value.trim();
 
-    if (!Name || !Email || !Password || !Phone) {
-        alert("Give all required data");
-        return;
-    }
+    // if (!Name || !Email || !Password || !Phone) {
+    //     alert("Give all required data");
+    //     return;
+    // }
 
 
     overlay.classList.remove("hidden");

@@ -6,19 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 </head>
 
-<body>
+<body class="pt-2">
+
+    <nav class="flex justify-between items-center px-6 py-4">
 
 
-
-    <main id="container" class="w-3/4 md:w-1/2 h-screen mx-auto flex flex-col justify-center  items-center ">
-        <div class="tabs flex justify-around w-4/5 text-lg m-2">
-            <span class="active">Signup</span>
-            <span>Login</span>
+        <div class="logo text-xl font-bold">
+            ToDo
         </div>
+
+        <ul class="tabs flex gap-10 text-md">
+            <li class="active cursor-pointer">Sign Up</li>
+            <li class="cursor-pointer">Log in</li>
+        </ul>
+
+    </nav>
+
+    <div class="bg">
+        <div class="bg-blue-blur"></div>
+        <div class="bg-pink-blur"></div>
+    </div>
+    <main id="container"
+        class="w-3/4 md:w-1/2 h-[calc(100vh-70px)] mx-auto flex flex-col justify-center  items-center ">
         <form id="signup" class="space-y-5 flex flex-col justify-center  items-center w-4/5 ">
             <div class="w-full relative">
                 <input class="block border border-gray-600 rounded-lg p-2 text-white" type="text" placeholder=" "
@@ -45,7 +59,7 @@
                 Sign Up
             </button>
         </form>
-         
+
         <div id="overlay" class="inset-0 hidden absolute bg-black/40 backdrop-blur-sm z-0"></div>
 
         <div id="signup-confirmed"
@@ -129,9 +143,28 @@
 
         </form>
 
-        <div class="dashboard">
-        </div>
+
     </main>
+    <div class="dashboard">
+
+    </div>
+    <div class="contact">
+        <a href="https://instagram.com/g4urav1_" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrjnFQQbTmRdLssHRXjhfWctpjrVhMFpkwDwGrgggZKbTCDmcHflfvkckWlLTgBHKjpKNq"
+            target="_blank">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+
+        <a href="https://github.com/g4urav1" target="_blank">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </div>
+
+
+
 
 
 </body>
