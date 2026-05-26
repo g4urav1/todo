@@ -1,6 +1,7 @@
 const tabs = document.querySelectorAll("ul li");
 const signup = document.getElementById("signup");
 const login = document.getElementById("login");
+const reset = document.getElementById("reset");
 
 tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => {
@@ -14,12 +15,19 @@ tabs.forEach((tab, index) => {
 
             login.classList.add("hidden");
             login.classList.remove("flex");
+
+            reset.classList.add("hidden");
+            reset.classList.remove("flex");
+
         } else {
             login.classList.remove("hidden");
             login.classList.add("flex");
 
             signup.classList.add("hidden");
             signup.classList.remove("flex");
+
+            reset.classList.add("hidden");
+            reset.classList.remove("flex");
         }
     });
 });
@@ -29,6 +37,7 @@ const signupmsg = document.getElementById("signup-confirmed");
 const back = document.getElementById("back-btn");
 const gotoLogin = document.getElementById("goto-login");
 
+// Hide Overlay
 overlay.addEventListener("click", () => {
     signupmsg.classList.add("hidden");
     signupmsg.classList.remove("flex");
@@ -36,6 +45,7 @@ overlay.addEventListener("click", () => {
     overlay.classList.add("hidden");
 });
 
+//Back to signup
 back.addEventListener("click", () => {
     signupmsg.classList.add("hidden");
     signupmsg.classList.remove("flex");
@@ -43,6 +53,7 @@ back.addEventListener("click", () => {
     overlay.classList.add("hidden");
 });
 
+//TO login
 gotoLogin.addEventListener("click", () => {
 
     signupmsg.classList.add("hidden");
@@ -62,8 +73,8 @@ gotoLogin.addEventListener("click", () => {
 });
 
 
-const signupBtn = document.querySelector("#signup button");
-
+//Signup function
+const signupBtn = document.getElementById("signupBtn");
 signupBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -77,10 +88,28 @@ signupBtn.addEventListener("click", async (e) => {
     //     return;
     // }
 
-
     overlay.classList.remove("hidden");
     signupmsg.classList.remove("hidden");
     signupmsg.classList.add("flex");
 
-
 });
+
+//ResetPassword
+
+const resetBtn = document.getElementById("resetBtn")
+
+resetBtn.addEventListener("click", () => {
+    login.classList.add("hidden")
+    reset.classList.remove("hidden")
+    reset.classList.add("flex")
+})
+
+const backToLogin = document.getElementById("back-login")
+
+backToLogin.addEventListener("click",()=>{
+    login.classList.remove("hidden");
+    login.classList.add("flex");
+
+    reset.classList.add("hidden");
+    reset.classList.remove("flex");
+})

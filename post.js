@@ -276,7 +276,11 @@ app.post("/addtask", async (req, res) => {
 
     const id = firstPart + secondPart;
 
-    ExistingUser.Tasks.push({ "id": id, "Task": givenTask });
+    const today = new Date();
+    const AddDate = `${String(today.getDate()).padStart(2, "0")}/${String(today.getMonth() + 1).padStart(2, "0")}/${today.getFullYear()}`;
+    ExistingUser.Tasks.push({
+      id: id, Task: givenTask, AddedDate: AddDate
+    });
 
     await fs.writeFile(
       "./database/users.json",
@@ -309,13 +313,13 @@ app.post("/removetask", async (req, res) => {
       return res.json("User not found");
     }
 
-   const ExistingTask = ExistingUser.Tasks.find(task => task.id === id);
+    const ExistingTask = ExistingUser.Tasks.find(task => task.id === id);
 
     if (!ExistingTask) {
       return res.json("No tasks found");
     }
 
-  ExistingUser.Tasks = ExistingUser.Tasks.filter(task => task.id !== id);
+    ExistingUser.Tasks = ExistingUser.Tasks.filter(task => task.id !== id);
 
     await fs.writeFile(
       "./database/users.json",

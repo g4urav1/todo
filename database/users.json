@@ -3,17 +3,7 @@
     "Name": "Gaurav",
     "Email": "gauravkumarjha2107@gmail.com",
     "Password": "454352",
-    "Phone": "95XXXXXX74",
-    "Tasks": [
-      {
-        "id": "UPD719",
-        "Task": "update this code on Github Repo"
-      },
-      {
-        "id": "UPD753",
-        "Task": "update this code on Github Repo"
-      }
-    ]
+    "Phone": "95XXXXXX74"
   },
   {
     "Name": "cssflows",
@@ -22,24 +12,9 @@
     "Phone": 9354551718,
     "Tasks": [
       {
-        "id": "TAS596",
-        "Task": "Task1"
-      },
-      {
-        "id": "BUY188",
-        "Task": "Buy something"
-      },
-      {
-        "id": "GO 265",
-        "Task": "Go to gym"
-      },
-      {
-        "id": "GO 703",
-        "Task": "Go to gym"
-      },
-      {
-        "id": "NEW237",
-        "Task": "New Task"
+        "id": "BUI106",
+        "Task": "Build DashBoard For Todo website",
+        "AddedDate": "26/05/2026"
       }
     ]
   }

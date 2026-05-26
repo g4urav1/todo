@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-</head>
 
 <body class="pt-2">
 
-    <nav class="flex justify-between items-center px-6 py-4">
+    <nav id="mainNav" class="flex justify-between items-center px-6 py-4">
 
 
         <div class="logo text-xl font-bold">
@@ -27,12 +26,26 @@
 
     </nav>
 
+    <nav id="dashNav" class="hidden justify-between items-center px-6 py-4">
+
+
+        <div class="logo text-xl font-bold">
+            ToDo
+        </div>
+
+        <ul class="dash-tab flex gap-10 text-md">
+            <li class="active cursor-pointer">Mail</li>
+            <li class="cursor-pointer">Log out</li>
+        </ul>
+
+    </nav>
+
     <div class="bg">
         <div class="bg-blue-blur"></div>
         <div class="bg-pink-blur"></div>
     </div>
     <main id="container"
-        class="w-3/4 md:w-1/2 h-[calc(100vh-70px)] mx-auto flex flex-col justify-center  items-center ">
+        class="hidden w-screen px-1 md:px-0 md:w-1/2 h-[calc(100vh-70px)] mx-auto flex-col justify-center">
         <form id="signup" class="space-y-5 flex flex-col justify-center  items-center w-4/5 ">
             <div class="w-full relative">
                 <input class="block border border-gray-600 rounded-lg p-2 text-white" type="text" placeholder=" "
@@ -54,7 +67,7 @@
                     id="phone">
                 <label class="absolute text-white/70 left-2 top-3" for="phone">Phone Number</label>
             </div>
-            <button type="button"
+            <button type="button" id="signupBtn"
                 class="px-4 py-2 m-2 w-full border-none rounded-[14px] bg-gradient-to-br from-indigo-500 to-violet-500 text-white text-sm cursor-pointer transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_10px_20px_rgba(99,102,241,0.4)]">
                 Sign Up
             </button>
@@ -87,18 +100,18 @@
                 <label class="absolute text-white/70 left-2 top-3" for="login-pass">Password</label>
             </div>
             <div class="w-full flex">
-                <button type="button"
+                <button type="button" id="loginBtn"
                     class="px-4 py-2 m-2 w-2/5 border-none rounded-[14px] bg-gradient-to-br from-indigo-500 to-violet-500 text-white text-sm cursor-pointer transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_10px_20px_rgba(99,102,241,0.4)]">
                     Login
                 </button>
-                <button type="button"
+                <button type="button" id="resetBtn"
                     class="px-4 py-2 m-2 w-3/5 border-none rounded-[14px] bg-gradient-to-br from-indigo-500  to-pink-500 text-white text-sm cursor-pointer transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_10px_20px_rgba(192,132,252,0.4)]">
                     Reset Password
                 </button>
             </div>
         </form>
 
-        <form id="reset-page" class="space-y-5 hidden flex-col justify-center items-center w-4/5">
+        <form id="reset" class="space-y-5 hidden flex-col justify-center items-center w-4/5">
 
             <h1 class="text-2xl text-white font-bold">
                 Reset Password
@@ -131,7 +144,7 @@
                 </label>
             </div>
 
-            <button type="button" id="reset-password-btn" class="px-4 py-2 w-full rounded-[14px]
+            <button type="button" id="reset-pass-btn" class="px-4 py-2 w-full rounded-[14px]
         bg-gradient-to-br from-indigo-500 to-pink-500
         text-white">
                 Change Password
@@ -143,11 +156,72 @@
 
         </form>
 
-
     </main>
-    <div class="dashboard">
+
+    <div
+        class="dashboard w-screen md:w-1/2 h-[calc(100vh-70px)] mx-auto px-4 py-6 flex flex-col items-center text-white">
+
+
+        <h1 class="text-4xl font-bold mb-6 tracking-wide">
+            DashBoard
+        </h1>
+
+
+        <div class="w-full flex gap-3 mb-6">
+
+            <input type="text" id="addTask" placeholder="taskToAdd"
+                class="flex-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 text-white placeholder:text-gray-300 outline-none focus:ring-2 focus:ring-violet-400" />
+
+            <button id="addTaskBtn"
+                class="bg-violet-500 hover:bg-violet-600 px-5 py-3 rounded-2xl font-semibold transition duration-300 shadow-lg shadow-violet-500/30">
+                + Add
+            </button>
+
+        </div>
+
+
+        <div class="w-full flex flex-col gap-4">
+
+
+            <div id="taskBox"
+                class="w-full bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-5 flex items-center justify-between shadow-xl">
+
+
+                <div class="flex items-center gap-4">
+
+
+                    <div id="taskId"
+                        class="w-12 h-12 rounded-full bg-violet-500/20 border border-violet-400 flex items-center justify-center text-violet-300 font-bold text-lg">
+                        1
+                    </div>
+
+
+                    <div>
+                        <h2 id="Task" class="text-xl font-semibold">
+                            Build ToDo Dashboard
+                        </h2>
+
+                        <p id="dateAdded" class="text-sm text-gray-300">
+                            DD/MM/YYYY
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <button id="remove"
+                    class="bg-red-500/20 hover:bg-red-500 px-4 py-2 rounded-xl border border-red-400 text-red-200 hover:text-white transition">
+                    Remove
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
+
+
+
     <div class="contact">
         <a href="https://instagram.com/g4urav1_" target="_blank">
             <i class="fa-brands fa-instagram"></i>
