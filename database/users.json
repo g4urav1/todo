@@ -10,12 +10,6 @@
     "Email": "cssflows@gmail.com",
     "Password": "674384",
     "Phone": 9354551718,
-    "Tasks": [
-      {
-        "id": "BUI106",
-        "Task": "Build DashBoard For Todo website",
-        "AddedDate": "26/05/2026"
-      }
-    ]
+    "Tasks": []
   }
 ]
