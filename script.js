@@ -265,20 +265,20 @@ sendOtp.addEventListener("click", async (e) => {
 
     try {
 
-        // const response = await fetch("http://localhost:1111/forget_password", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({ mail })
-        // });
+        const response = await fetch("http://localhost:1111/forget_password", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ mail })
+        });
 
-        // const data = await response.json();
+        const data = await response.json();
 
-        // if (!response.ok) {
-        //     alert("error");
-        //     return;
-        // }
+        if (!response.ok) {
+            alert("error");
+            return;
+        }
 
         alert("Otp sent on Email");
 
@@ -311,20 +311,20 @@ resetpass.addEventListener("click", async (e) => {
 
     try {
 
-        // const response = await fetch("http://localhost:1111/reset_password", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({ mail, OTP, New_Password })
-        // });
+        const response = await fetch("http://localhost:1111/reset_password", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ mail, OTP, New_Password })
+        });
 
-        // const data = await response.json();
+        const data = await response.json();
 
-        // if (!response.ok) {
-        //     alert("error");
-        //     return;
-        // }
+        if (!response.ok) {
+            alert("error");
+            return;
+        }
 
         alert("Password Changed");
 
