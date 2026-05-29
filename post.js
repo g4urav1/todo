@@ -112,9 +112,9 @@ app.post("/forget_password", async (req, res) => {
   try {
     const UsersData = await fs.readFile("./database/users.json", "utf-8")
     const userArr = JSON.parse(UsersData)
-    const { Email } = req.body
+    const { mail } = req.body
     const OTP = Math.floor(100000 + Math.random() * 900000)
-    const ExistingUser = userArr.find(user => user.Email === Email)
+    const ExistingUser = userArr.find(user => user.Email === mail)
 
     if (ExistingUser) {
 
@@ -228,7 +228,7 @@ app.post("/forget_password", async (req, res) => {
       // const response = await data.json()
 
 
-      res.json(
+      res.status(200).json(
         {
           "Email": ExistingUser.Email,
           "OTP": ExistingUser.OTP,
@@ -240,7 +240,7 @@ app.post("/forget_password", async (req, res) => {
 
     }
     else {
-      res.json("NO user found, Go to SignUp page")
+      res.status(404).json("NO user found, Go to SignUp page")
     }
 
   } catch (error) {
@@ -252,26 +252,26 @@ app.post("/reset_password", async (req, res) => {
   try {
 
     const UsersData = await fs.readFile("./database/users.json", "utf-8")
-    const { Email, OTP, New_Password } = req.body
+    const { mail, OTP, New_Password } = req.body
 
-    if (!Email || !OTP || !New_Password) {
+    if (!mail || !OTP || !New_Password) {
       res.json({ "message": "Give All Neccessary Details" })
       return
     }
 
     const userArr = JSON.parse(UsersData)
-    const validUser = userArr.find(user => user.Email === Email && user.OTP === OTP)
+    const validUser = userArr.find(user => user.Email === mail && user.OTP == OTP)
 
     if (validUser) {
       validUser.Password = New_Password
       validUser.OTP = undefined
       const NewData = JSON.stringify(userArr, null, 2)
       await fs.writeFile("./database/users.json", NewData)
-      res.json(validUser)
+      res.status(200).json(validUser)
 
     }
     else {
-      res.json({ "message": "Wrong data" })
+      res.status(401).json({ "message": "Wrong data" })
     }
 
 

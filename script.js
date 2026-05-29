@@ -1,11 +1,10 @@
-
 const tabs = document.querySelectorAll(".tab");
 const signup = document.getElementById("signup");
 const login = document.getElementById("login");
 const reset = document.getElementById("reset");
 const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
-const resetBtn = document.getElementById("toResetPage");
+const toreset = document.getElementById("toResetPage");
 const backToLogin = document.getElementById("back-login");
 const logout = document.getElementById("logout");
 const mainNav = document.getElementById("mainNav");
@@ -13,7 +12,8 @@ const dashNav = document.getElementById("dashNav");
 const forms = document.getElementById("container");
 const dashboard = document.getElementById("dashboard");
 const addTaskBtn = document.getElementById("addTaskBtn");
-
+const resetpass = document.getElementById("resetpass");
+const sendOtp = document.getElementById("sendOtp");
 
 
 tabs.forEach((tab, index) => {
@@ -90,14 +90,14 @@ async function renderTasks(tasks) {
                     <div class="text-gray-300 text-center py-5">
                         No Tasks Available
                     </div>
-                `;
+                    `;
         return;
     }
 
     taskContainer.innerHTML = tasks.map((task, i) => {
 
         return `
-                <div
+        <div
     class="task group relative bg-white/10 backdrop-blur-md  border border-white/20 rounded-2xl px-5 py-4  flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-white/15 hover:border-violet-400/30 
     hover:shadow-violet-500/10 transition-all duration-300 ease-out shadow-lg shadow-black/10 hover:-translate-y-1 overflow-hidden snap-start">
 
@@ -107,7 +107,7 @@ async function renderTasks(tasks) {
             <span
                 class="task-id bg-violet-500/20 text-violet-300 text-xs px-2 py-1 rounded-lg font-semibold">
                 ${task.id}
-            </span>
+                </span>
 
             <h2 class="task-name text-base sm:text-lg font-semibold tracking-wide break-words">
                 ${task.Task}
@@ -116,19 +116,19 @@ async function renderTasks(tasks) {
 
         <div class="text-sm text-gray-300 flex flex-wrap gap-3">
             <span class="task-date">
-                ${task.AddedDate}
+            ${task.AddedDate}
             </span>
 
             <span class="task-time">
                 ${task.AddedTime}
-            </span>
-        </div>
-
+                </span>
+                </div>
+                
     </div>
 
     <button  data-id="${task.id}"
         class="RemoveTaskBtn w-full sm:w-auto
-bg-red-500/20 hover:bg-red-500
+        bg-red-500/20 hover:bg-red-500
 text-red-300 hover:text-white
 px-4 py-2 rounded-xl
 transition-all duration-300
@@ -247,12 +247,111 @@ loginBtn.addEventListener("click", async (e) => {
 });
 
 
-resetBtn.addEventListener("click", () => {
+toreset.addEventListener("click", () => {
     login.classList.add("hidden")
     reset.classList.remove("hidden")
     reset.classList.add("flex")
 })
 
+sendOtp.addEventListener("click", async (e) => {
+    e.preventDefault()
+    const mail = document.getElementById("reset-mail").value
+
+
+    if (!mail) {
+        alert("EnterMail");
+        return;
+    }
+
+    try {
+
+        // const response = await fetch("http://localhost:1111/forget_password", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({ mail })
+        // });
+
+        // const data = await response.json();
+
+        // if (!response.ok) {
+        //     alert("error");
+        //     return;
+        // }
+
+        alert("Otp sent on Email");
+
+
+        sendOtp.classList.add("hidden")
+        resetpass.classList.remove("hidden")
+        document.getElementById("reset-mail").disabled = true;
+        document.getElementById("reset-mail").classList.add("cursor-not-allowed");
+
+
+    } catch (error) {
+        console.log(error)
+        alert("server error")
+    }
+})
+
+
+resetpass.addEventListener("click", async (e) => {
+    e.preventDefault()
+
+    const mail = document.getElementById("reset-mail").value
+    const OTP = document.getElementById("reset-otp").value
+    const New_Password = document.getElementById("new-password").value
+
+
+    if (!mail || !OTP || !New_Password) {
+        alert("fill all fields");
+        return;
+    }
+
+    try {
+
+        // const response = await fetch("http://localhost:1111/reset_password", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({ mail, OTP, New_Password })
+        // });
+
+        // const data = await response.json();
+
+        // if (!response.ok) {
+        //     alert("error");
+        //     return;
+        // }
+
+        alert("Password Changed");
+
+        login.classList.remove("hidden");
+        login.classList.add("flex");
+
+        reset.classList.add("hidden");
+        reset.classList.remove("flex");
+
+         document.getElementById("reset-mail").value = ""
+         document.getElementById("reset-otp").value = ""
+         document.getElementById("new-password").value = ""
+
+
+          sendOtp.classList.remove("hidden")
+        resetpass.classList.add("hidden")
+          document.getElementById("reset-mail").disabled = false;
+        document.getElementById("reset-mail").classList.remove("cursor-not-allowed");
+
+
+
+
+    } catch (error) {
+        console.log(error)
+        alert("server error")
+    }
+})
 
 backToLogin.addEventListener("click", () => {
     login.classList.remove("hidden");

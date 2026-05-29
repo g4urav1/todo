@@ -8,15 +8,9 @@
   {
     "Name": "cssflows",
     "Email": "cssflows@gmail.com",
-    "Password": "674384",
+    "Password": "changed password",
     "Phone": 9354551718,
     "Tasks": [
-      {
-        "id": "CRA616",
-        "Task": "crazy  bngya ye toh",
-        "AddedDate": "28/05/2026",
-        "AddedTime": "09:48 pm"
-      },
       {
         "id": "UPD165",
         "Task": "Update code on github repo",
@@ -42,5 +36,25 @@
         "AddedTime": "09:28 pm"
       }
     ]
+  },
+  {
+    "Name": "hello",
+    "Email": "user@gmail.com",
+    "Password": "11111",
+    "Phone": "1111111111",
+    "Tasks": [
+      {
+        "id": "1841",
+        "Task": "1",
+        "AddedDate": "29/05/2026",
+        "AddedTime": "08:11 am"
+      }
+    ]
+  },
+  {
+    "Name": "css flows",
+    "Email": "new@gmail.com",
+    "Password": "11111",
+    "Phone": "9958492503"
   }
 ]
