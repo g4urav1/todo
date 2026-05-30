@@ -8,9 +8,21 @@
   {
     "Name": "cssflows",
     "Email": "cssflows@gmail.com",
-    "Password": "changed password",
+    "Password": "newPass",
     "Phone": 9354551718,
     "Tasks": [
+      {
+        "id": "111173",
+        "Task": "1111",
+        "AddedDate": "30/05/2026",
+        "AddedTime": "09:02 am"
+      },
+      {
+        "id": "NEW720",
+        "Task": "New task",
+        "AddedDate": "30/05/2026",
+        "AddedTime": "08:19 am"
+      },
       {
         "id": "UPD165",
         "Task": "Update code on github repo",
@@ -22,12 +34,6 @@
         "Task": "Build DashBoard For Todo website",
         "AddedDate": "27/05/2026",
         "AddedTime": "10:03 am"
-      },
-      {
-        "id": "NEW671",
-        "Task": "new task",
-        "AddedDate": "28/05/2026",
-        "AddedTime": "09:25 pm"
       },
       {
         "id": "TAS984",
@@ -56,5 +62,11 @@
     "Email": "new@gmail.com",
     "Password": "11111",
     "Phone": "9958492503"
+  },
+  {
+    "Name": "name",
+    "Email": "mail@gmail.com",
+    "Password": "12345",
+    "Phone": "9988776655"
   }
 ]
